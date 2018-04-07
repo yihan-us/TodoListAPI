@@ -8,7 +8,7 @@ var TaskSchema = new Schema({
     type: String,
     required: 'Kindly enter the name of the task'
   },
-  Created_date: {
+  created_date: {
     type: Date,
     default: Date.now
   },
@@ -16,6 +16,9 @@ var TaskSchema = new Schema({
     type: String,
     enum: ['pending', 'ongoing', 'completed'],
     default: ['pending']
+  },
+  creator_id: {
+    type: String
   }
 });
 
