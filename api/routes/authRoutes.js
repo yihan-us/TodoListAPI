@@ -1,6 +1,7 @@
 'use strict';
 module.exports = function(app) {
-    var auth = require('../controllers/authController');
+    var auth = require('../controllers/authController'),
+    verifyToken = require('../../middleware/verifyToken');
 
     // todoList Routes
     app.route('/login')
@@ -12,5 +13,5 @@ module.exports = function(app) {
 
 
     app.route('/me')
-    	.get(auth.getMe)
+    	.get(verifyToken, auth.getMe)
 };
